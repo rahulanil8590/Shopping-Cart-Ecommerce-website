@@ -7,23 +7,28 @@ var logger = require('morgan');
 var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 var db =require('./config/connection');
+const expressLayouts= require('express-ejs-layouts')
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressLayouts);
+app.set('layout','./layouts/main')
 db.connect((err)=>{
   if(err) console.log('database is connection error');
   else console.log('Database is connected');
 })
 app.use('/', usersRouter);
 app.use('/admin', adminRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

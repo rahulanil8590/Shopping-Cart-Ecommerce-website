@@ -1,8 +1,46 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+:root{
+  --bg-font-sans-serif: 'Rubik',sans-serif;
+  --pink: #e5345b;
 }
 
-a {
-  color: #00B7FF;
+body{
+  font-family: var(--bg-font-sans-serif);
+}
+.container-xxl{
+  max-width: 1500px;
+}
+/* button */
+.bg-primary{
+background-color: var(--pink ) !important;
+}
+.navbar{
+  box-shadow: 0 3px 9px 3px rgba(0, 0,0,0.1);
+}
+.navbar-brand i{
+  width: 30px;
+  
+}
+.navbar-brand span{
+  letter-spacing: 2px;
+  font-family: var(--bg-font-sans-serif);
+}
+.nav-link:hover{
+  color: var(--pink) !important;
+}
+.nav-item{
+  border-bottom: 0.5px solid rgba(0, 0,0,0.05);
+}
+/* media querries */
+@media(min-width:992px){
+  .nav-item{
+    border-bottom:none;
+  }
+}
+@media(min-width:330px){
+  .navbar-brand{
+       
+        position: relative;
+        left: -38px;
+        top: -13px;
+  }
 }
